@@ -71,7 +71,7 @@ public class MultiMatchQuery extends MatchQuery {
             for (String fieldName : fieldNames.keySet()) {
                 Query query = parseAndApply(type, fieldName, value, minimumShouldMatch);
                 Float boostValue = fieldNames.get(fieldName);
-                if (boostValue != null) {
+                if (boostValue != null && query != null) {
                     query.setBoost(boostValue);
                 }
                
